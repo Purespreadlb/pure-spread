@@ -17,12 +17,12 @@ function openOrder(bundle, price) {
   bundleEl.textContent = bundle;
   if (totalEl) totalEl.textContent = currentPrice * qty;
 
-  modal.style.display = "flex";
+  document.getElementById("orderModal").style.display = "flex";
   loadTally();
 }
 
 function closeOrder() {
-  modal.style.display = "none";
+ document.getElementById("orderModal").style.display = "none";
 }
 
 function changeQty(n) {
