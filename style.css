@@ -353,94 +353,187 @@ iframe {
 
 
 
+/* =========================
+   Mobile adjustments
+   ========================= */
+@media (max-width: 768px) {
 
-
-/* Mobile adjustments */
-@media (max-width: 600px){
-
-  /* 1) Make the whole page less “tall” */
+  /* General */
   section { padding: 24px 14px; }
   .bundles { padding: 30px 14px; }
   .ingredients { padding: 30px 14px; }
-  .about { padding: 22px 14px; font-size: 14px; }
   .tableau-container { margin-top: 28px; }
-  .tableau-frame { margin-bottom: 28px; }
+  .tableau-frame { margin: 28px 0; }
 
-  /* 2) Fix hero: stop the 800px height on phone */
+  /* HERO: your desktop height is 800px, too big for phones */
   .hero-image img{
-    height: 42vh;      /* responsive height */
-    max-height: 360px; /* cap it */
+    height: 42vh;
+    max-height: 360px;
     object-fit: cover;
   }
 
-  /* 3) Force 3 bundles per row (on phone) */
+  /* BUNDLES grid adjustment */
+
+.bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+/* CLEAN 3-COLUMN MOBILE CARDS */
+@media (max-width: 768px) {
+
+
   .bundle-grid{
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
 
-  /* 4) Make bundle cards not look stretched */
   .bundle{
-    padding: 12px;
-  }
-  .price{
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  button{
-    padding: 10px 12px;
-    border-radius: 10px;
+    padding: 10px;
+    border-radius: 14px;
   }
 
-  /* 5) Make bundle images less tall so they don’t look “weird” */
+  /* Make the images look consistent */
   .bundle-image-container,
   .bundle-image-two,
   .bundle-image-three{
-    height: 110px; /* key: shorter image box */
+    height: 110px;          /* smaller = cleaner */
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .bundle-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  /* Stop ugly wrapping */
+  .bundle h3{
+    font-size: 14px;
+    line-height: 1.1;
+    margin: 10px 0 6px;
+    text-align: center;
+  }
+
+  .price{
+    font-size: 14px;
+    margin: 0 0 10px;
+    text-align: center;
+  }
+
+
+
+ /* Make the Order buttons identical size */
+  .bundle button{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 13px;
+    border-radius: 999px;
   }
 }
-.ingredients-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-  }
+
+
+  /* INGREDIENTS grid adjustment */
 
   .ingredient{
     width: 100%;
     max-width: none;
-    padding: 10px;
   }
-
-  .icon{
-    width: 40px;
-    height: 40px;
-  }
+}
 
 
-/* ===== Mobile fix: Order modal + Tally iframe ===== */
-@media (max-width: 768px) {
-  #orderModal {
-    position: fixed;
-    inset: 0;
-    padding: 12px;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+  /* ===== MODAL mobile fix ===== */
+#orderModal {
+  align-items: flex-start;
+  padding: 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-  #orderModal .modal-content {
+#orderModal .modal-content {
+  width: 100%;
+  max-width: 520px;
+  max-height: 82vh;
+  overflow-y: auto;
+  margin: 0 auto;
+  padding: 16px;
+  padding-top: 56px;
+  box-sizing: border-box;
+}
+
+/* Close button */
+#orderModal .close {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 99999;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  border: none;
+  background: rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+/* Tally iframe */
+#tallyFrame {
+  width: 100%;
+  height: 65vh;
+  border: 0;
+  border-radius: 12px;
+}
+
+
+/* ===== FIX: iPhone tap on close button over iframe ===== */
+#orderModal{
+  z-index: 9999;
+  align-items: flex-start;          /* modal starts at top */
+}
+
+#orderModal .modal-content{
+  position: relative;
+  max-height: 92vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 64px;               /* space so iframe never sits under close */
+}
+
+/* Close button: fixed on screen so iframe can't steal taps */
+#orderModal .close{
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 999999;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: rgb(0, 0, 0);
+  font-size: 28px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+
+/* Mobile: iframe should be vh-based, not fixed px */
+@media (max-width: 768px){
+  #tallyFrame{
     width: 100%;
-    max-width: 520px;
-    max-height: 92vh;
-    margin: auto;
-    padding: 12px;
-    overflow-y: auto;
-    box-sizing: border-box;
-  }
-
-  #tallyFrame {
-    display: block;
-    width: 100%;
-    height: 70vh;
+    height: 65vh;
     border: 0;
+    border-radius: 12px;
+    display: block;
   }
 }
