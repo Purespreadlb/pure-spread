@@ -1,0 +1,417 @@
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+:root {
+  --cream: #f6efe6;
+  --brown: #5a3b1e;
+  --dark: #111;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+}
+
+
+
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.808);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: 10;
+} 
+
+header img {
+  height: 80px;
+}
+ 
+
+
+
+
+/* HERO */
+.hero {
+  padding: 10px 20px 40px;
+  text-align: center;
+}
+
+.hero-logo img {
+  height: 120px;
+ 
+}
+
+.hero-image img {
+  height: 800px;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+
+
+
+/* BUNDLES */
+.bundles {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.bundle-title {
+  font-family: Arial;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 60px;
+}
+
+.bundle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+  font-size: 22px;
+  color: #000000;
+}
+
+.bundle {
+  background: rgba(221, 221, 179, 0.54);
+  padding: 26px;
+  border-radius: 18px;
+  border: #000000 2px solid;
+  
+}
+
+.price {
+  font-size: 22px;
+  margin: 10px 0;
+  font-weight: bold;
+  color: #000000;
+}
+
+.bundle-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 16px;  
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 6px solid #fff;
+
+} 
+
+
+.bundle-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.bundle-image-two {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 16px;  
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 6px solid #fff;
+}
+
+
+.bundle-image-three {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  margin-bottom: 16px;  
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border: 6px solid #fff;
+  
+}
+
+
+button {
+  color: rgb(255, 255, 255);
+  background-color: #000000;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+  background-color: #655a5a;
+}
+
+
+
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: rgb(244, 240, 240);
+  width: 95%;
+  max-width: 520px;
+  padding: 20px;
+  border-radius: 16px;
+  position: relative;
+}
+
+.update-btn {
+  background: var(--brown);
+  color: rgb(255, 255, 255);
+  background-color: #111;
+  border: none;
+  padding: 16px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.close {
+  position: absolute;
+  right: 16px;
+  top: 6px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.quantity {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.quantity button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  padding: 0;
+}
+
+iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  border-radius: 12px;
+}
+
+
+
+
+
+/* ABOUT */
+.about {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 40px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 2.5rem;
+  margin-top: 60px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-shadow: beige 3px 3px 6px; 
+}
+
+.about-content {
+  max-width: 800px;
+  margin: auto;
+  font-size: 24px;
+  margin-top: 70px;
+  font-style: italic;
+} 
+
+
+
+
+/* INGREDIENTS */
+
+.ingredients {
+  padding: 40px 20px;
+  text-align: center;
+  margin-top: 0px;
+  font-size: 22px;
+  font-weight: bold;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.1);
+}
+
+.ingredients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ingredient {
+  width: 220px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+  padding: 18px 14px;
+}
+
+.icon {
+  width: 60px;
+  height: 60px;
+  color: #5a3b1e; /* or: var(--brown) */
+  margin-bottom: 15px;
+}
+
+.ingredient p {
+  margin: 0;
+  font-weight: 600;
+}
+
+
+
+
+
+/* TABLEAU */
+
+.tableau-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 0px;
+  border:#ffffff 2px solid;
+  padding: 20px;
+  background: rgba(221, 221, 179, 0.54);
+}
+
+.tableau-frame{
+  width: min(360px, 92vw);
+  border: 2px solid #111;
+  background: #fff;
+  padding: 4px;
+  box-sizing: border-box;
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.tableau-img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+
+
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: var(--dark);
+  color: rgb(255, 255, 255);
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 16px;
+}
+
+
+
+
+
+
+/* Mobile adjustments */
+@media (max-width: 600px){
+
+  /* 1) Make the whole page less “tall” */
+  section { padding: 24px 14px; }
+  .bundles { padding: 30px 14px; }
+  .ingredients { padding: 30px 14px; }
+  .about { padding: 22px 14px; font-size: 14px; }
+  .tableau-container { margin-top: 28px; }
+  .tableau-frame { margin-bottom: 28px; }
+
+  /* 2) Fix hero: stop the 800px height on phone */
+  .hero-image img{
+    height: 42vh;      /* responsive height */
+    max-height: 360px; /* cap it */
+    object-fit: cover;
+  }
+
+  /* 3) Force 3 bundles per row (on phone) */
+  .bundle-grid{
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  /* 4) Make bundle cards not look stretched */
+  .bundle{
+    padding: 12px;
+  }
+  .price{
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  button{
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  /* 5) Make bundle images less tall so they don’t look “weird” */
+  .bundle-image-container,
+  .bundle-image-two,
+  .bundle-image-three{
+    height: 110px; /* key: shorter image box */
+  }
+}
+.ingredients-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .ingredient{
+    width: 100%;
+    max-width: none;
+    padding: 10px;
+  }
+
+  .icon{
+    width: 40px;
+    height: 40px;
+  }
