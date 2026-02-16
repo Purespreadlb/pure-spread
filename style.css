@@ -34,17 +34,25 @@ header {
   top: 0;
   width: 100%;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.808);
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(4px);
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   opacity: 0;
-  transition: opacity 0.4s;
+  transform: translateY(-100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
   z-index: 10;
 } 
 
 header img {
   height: 80px;
+}
+
+
+header.header-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
  
 
@@ -88,12 +96,19 @@ header img {
 
 .bundle-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;
-  max-width: 900px;
+  max-width: 1120px;
   margin: auto;
   font-size: 22px;
   color: #000000;
+}
+
+@media (max-width: 1100px) {
+  .bundle-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+    max-width: 760px;
+  }
 }
 
 .bundle {
@@ -101,12 +116,13 @@ header img {
   padding: 26px;
   border-radius: 18px;
   border: #000000 2px solid;
-  
+  display: flex;
+  flex-direction: column;
 }
 
 .price {
   font-size: 22px;
-  margin: 10px 0;
+  margin: auto 0 10px;
   font-weight: bold;
   color: #000000;
 }
@@ -129,28 +145,6 @@ header img {
   object-fit: cover;
 }
 
-
-.bundle-image-two {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  margin-bottom: 16px;  
-  border-radius: 12px;
-  margin-bottom: 16px;
-  border: 6px solid #fff;
-}
-
-
-.bundle-image-three {
-  width: 100%;
-  height: 200px;
-  overflow: hidden;
-  margin-bottom: 16px;  
-  border-radius: 12px;
-  margin-bottom: 16px;
-  border: 6px solid #fff;
-  
-}
 
 
 button {
@@ -372,33 +366,19 @@ iframe {
     object-fit: cover;
   }
 
-  /* BUNDLES grid adjustment */
-
-.bundle-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-}
-
-/* CLEAN 3-COLUMN MOBILE CARDS */
-@media (max-width: 768px) {
-
-
+  /* BUNDLES */
   .bundle-grid{
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .bundle{
-    padding: 10px;
+    padding: 12px;
     border-radius: 14px;
   }
 
-  /* Make the images look consistent */
-  .bundle-image-container,
-  .bundle-image-two,
-  .bundle-image-three{
-    height: 110px;          /* smaller = cleaner */
+  .bundle-image-container{
+    height: 110px;
     border-radius: 12px;
     overflow: hidden;
   }
@@ -410,7 +390,7 @@ iframe {
     border-radius: 12px;
   }
 
-  /* Stop ugly wrapping */
+
   .bundle h3{
     font-size: 14px;
     line-height: 1.1;
@@ -424,28 +404,21 @@ iframe {
     text-align: center;
   }
 
-
-
- /* Make the Order buttons identical size */
   .bundle button{
     width: 100%;
     padding: 10px 0;
     font-size: 13px;
     border-radius: 999px;
   }
-}
-
 
   /* INGREDIENTS grid adjustment */
-
   .ingredient{
     width: 100%;
     max-width: none;
   }
 }
 
-
-  /* ===== MODAL mobile fix ===== */
+/* ===== MODAL mobile fix ===== */
 #orderModal {
   align-items: flex-start;
   padding: 14px;
