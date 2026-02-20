@@ -53,9 +53,24 @@ function loadTally() {
   }, 50);
 }
 
-/* Header show on scroll */
+/* Header shows only when scrolling down */
+const header = document.getElementById("header");
+let lastScrollY = window.scrollY;
+
 window.addEventListener("scroll", () => {
-  document.getElementById("header").style.opacity =
-    window.scrollY > 200 ? 1 : 0;
+  if (!header) return;
+
+  const currentScrollY = window.scrollY;
+  const scrollingDown = currentScrollY > lastScrollY;
+  const passedThreshold = currentScrollY > 120;
+
+  if (passedThreshold && scrollingDown) {
+    header.classList.add("header-visible");
+  } else {
+    header.classList.remove("header-visible");
+  }
+
+  lastScrollY = currentScrollY;
 });
+
 /* Close modal on outside click */
